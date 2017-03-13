@@ -1,3 +1,6 @@
+<! All the code in the application.html file is common to all the pages in the website, like header and footer>
+<! Other HTML files like home.html.erb is rendered in place of yield found below>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,25 +11,13 @@
 </head>
 <body>
 
-<header class="navbar navbar-fixed-top navbar-default">
-  <div class="container">
-    <%= link_to "myRecipes", "", class: "btn btn-lg btn-success", id: "logo" %>
-    <div class="nav_item">
-      <%= link_to "link 1", "", class: "btn btn-default btn-warning" %>
-    </div>
-    <div class="nav_item">
-      <%= link_to "link 1", "", class: "btn btn-default btn-warning" %>
-    </div>
-    <div class="nav_item">
-      <%= link_to "link 1", "", class: "btn btn-default btn-warning" %>
-    </div>
-  </div>
-</header>
+<! here we moved the header section to the navigation partial to clean the code. We then replaced it with the following code>
+  <%= render 'layouts/navigation' %>
+
   <div class="container">
     <%= yield %>
-    <div class="footer">
-      <p>&copy; MyRecipes 2015</p>
-    </div>
+<! here we moved the footer section to the footer partial to clean the code. We then replaced it with the following code>    
+    <%= render 'layouts/footer' %>
   </div>
 
 </body>
